@@ -32,7 +32,7 @@ const createWallet = async () => {
         {
           headers: {
             "Content-Type": "application/json",
-            'Authorization' : `Bearer ${localStorage.getItem('token')}`,
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
           },
         }
     );
@@ -54,8 +54,8 @@ const currencies = async () => {
         "http://localhost:2280/api/v1/currency",
         {
           headers: {
-            'Accept' : "application/json",
-            'Authorization' : `Bearer ${localStorage.getItem('token')}`,
+            'Accept': "application/json",
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
           },
         }
     );
@@ -69,7 +69,7 @@ const currencies = async () => {
 
 // error handler
 const errorHandler = (err) => {
-  const { status } = err.response;
+  const {status} = err.response;
   if (status === 201) {
     emitter.emit('alertSuccess', err.response.data.message);
   } else if (status === 400) {
@@ -94,7 +94,7 @@ onMounted(() => {
   <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-      <h1 class="h2">Transactions</h1>
+      <h1 class="h2">New wallet</h1>
     </div>
     <alert-component></alert-component>
     <form @submit.prevent="createWallet">
@@ -124,7 +124,7 @@ onMounted(() => {
         <label for="amount">Amount</label>
       </div>
       <div class="form-floating mb-3">
-        <select required id="currency" v-model="currency" class="form-select" name="currency">
+        <select id="currency" v-model="currency" class="form-select" name="currency" required>
           <option v-for="currency in curr_list" :value="currency.name">{{ currency.name }}</option>
         </select>
         <label for="currency">Currency</label>

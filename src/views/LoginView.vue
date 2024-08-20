@@ -49,14 +49,17 @@ const logIn = async () => {
       } else {
         emitter.emit('alertDanger', "Server has error",);
       }
+      console.log(err)
     } else if (err.request) {
-      router.push('index');
+      // router.push('index');
+      emailError.value = err.response.statusText;
     }
   };
 
   const saveToken = (response) => {
     if (response.status === 200) {
-      localStorage.setItem("token", response.data.token);
+      sessionStorage.setItem('token', response.data.token)
+      // document.cookie = "token=" + response.data.token;
       const redirectTo = router.currentRoute.value.query.redirect || 'dashboard';
       router.push(redirectTo);
     }

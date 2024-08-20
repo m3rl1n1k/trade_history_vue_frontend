@@ -16,7 +16,7 @@ const passwordError = ref("");
 const rePasswordError = ref("");  // Додайте змінну для помилки підтвердження пароля
 
 onMounted(() => {
-  if (localStorage.getItem('token')) {
+  if (sessionStorage.getItem('token')) {
     router.push('dashboard');
   }
 });

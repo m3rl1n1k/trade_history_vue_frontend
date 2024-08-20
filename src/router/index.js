@@ -5,15 +5,16 @@ import DashboardView from "@/views/DashboardView.vue"; // Імпортуйте �
 import TransactionsView from "@/views/Transaction/TransactionsView.vue"; // Імпортуйте відсутні компоненти
 import ProfileView from "@/views/ProfileView.vue"; // Імпортуйте відсутні компоненти
 import {isTokenValid} from './auth';
-import TransactionNewView from "@/views/Transaction/TransactionNewView.vue";
+import TransactionNewView from "@/components/forms/TransactionFormComponent.vue";
 import WalletNewView from "@/views/Wallet/WalletNewView.vue";
 import WalletsView from "@/views/Wallet/WalletsView.vue";
 import SettingView from "@/views/SettingView.vue";
 import IndexView from "@/views/IndexView.vue";
+import CategoriesView from "@/views/Category/CategoriesView.vue";
 
 const routes = [
     {
-        path: "/",
+        path: "/index",
         component: IndexView,
         name: 'index'
     },
@@ -52,7 +53,23 @@ const routes = [
             requiresAuth: true
         }
     },
-
+    // Category
+    {
+        path: "/categories",
+        component: CategoriesView,
+        name: 'categories',
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: "/categories/new",
+        component: CategoriesView,
+        name: 'categories_new',
+        meta: {
+            requiresAuth: true
+        }
+    },
     // Wallet
     {
         path: "/wallets",
@@ -96,7 +113,7 @@ const router = createRouter({
 
 
 router.beforeEach((to, from, next) => {
-    const token = localStorage.getItem('token');
+    const token = sessionStorage.getItem('token');
     const isAuthenticated = isTokenValid(token);
 
     if (to.matched.some(record => record.meta.requiresAuth)) {

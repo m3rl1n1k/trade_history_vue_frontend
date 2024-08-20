@@ -43,18 +43,6 @@ import SidebarComponent from "@/components/SidebarComponent.vue";
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="form-group">
-              <label class="col-lg-3 control-label">Currency</label>
-
-              <div class="ui-select">
-                <select id="user_time_zone" class="form-control">
-                  <option value="USD">USD</option>
-                  <option value="PLN">PLN</option>
-                </select>
-              </div>
-            </div>
-          </div>
         </div>
         <button class="btn btn-outline-primary my-3" type="submit">Save changes</button>
       </form>

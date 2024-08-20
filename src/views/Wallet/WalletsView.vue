@@ -15,8 +15,8 @@ async function getWallets() {
   try {
     const response = await axios.get("http://localhost:2280/api/v1/wallets", {
       headers: {
-        'Accept' : 'application/json',
-        'Authorization' : `Bearer ${localStorage.getItem('token')}`
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${sessionStorage.getItem('token')}`
       }
     });
     const data = response.data;
@@ -45,7 +45,7 @@ onMounted(() => {
       <router-link class="btn btn-outline-success" to="/wallets/new">Add</router-link>
     </div>
     <div v-if="wallets.length > 0" class="">
-      <table class="table table-striped table-hover">
+      <table class="table table-striped table-hover text-center">
         <thead>
         <tr>
           <th scope="col">#</th>
@@ -58,7 +58,7 @@ onMounted(() => {
         <tbody>
         <tr v-for="wallet in wallets">
           <th scope="row">{{ wallet.id }}</th>
-          <td>{{ wallet.card_name ?? "Noname" }}</td>
+          <td>{{ wallet.card_name.length !== 0 ? wallet.card_name : "-" }}</td>
           <td>{{ wallet.number }}</td>
           <td>{{ wallet.amount }}</td>
           <td>{{ wallet.currency }}</td>

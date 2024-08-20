@@ -5,7 +5,7 @@ import IconsComponent from "@/components/IconsComponent.vue";
 import router from "@/router/index.js";
 
 const logout = () => {
-  localStorage.removeItem("token");
+  sessionStorage.removeItem("token");
   router.push("/login")
 }
 
@@ -49,28 +49,20 @@ const logout = () => {
             </router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link d-flex align-items-center gap-2" to="/categories">
+              <svg class="bi">
+                <use xlink:href="#graph-up"></use>
+              </svg>
+              Categories
+            </router-link>
+          </li>
+          <li class="nav-item">
             <RouterLink class="nav-link d-flex align-items-center gap-2" href="#" to="/profile">
               <svg class="bi">
                 <use xlink:href="#people"></use>
               </svg>
               Profile
             </RouterLink>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="#">
-              <svg class="bi">
-                <use xlink:href="#graph-up"></use>
-              </svg>
-              Reports
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link d-flex align-items-center gap-2" href="#">
-              <svg class="bi">
-                <use xlink:href="#puzzle"></use>
-              </svg>
-              Integrations
-            </a>
           </li>
         </ul>
 

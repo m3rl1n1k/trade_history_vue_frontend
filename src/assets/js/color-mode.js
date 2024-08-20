@@ -7,8 +7,8 @@
 (() => {
     'use strict'
 
-    const getStoredTheme = () => localStorage.getItem('theme')
-    const setStoredTheme = theme => localStorage.setItem('theme', theme)
+    const getStoredTheme = () => sessionStorage.getItem('theme')
+    const setStoredTheme = theme => sessionStorage.setItem('theme', theme)
 
     const getPreferredTheme = () => {
         const storedTheme = getStoredTheme()

@@ -10,7 +10,7 @@
           fill-rule="evenodd"></path>
     </symbol>
   </svg>
-  <header class="navbar sticky-top bg-dark flex-md-nowrap py-2 shadow p-0">
+  <header class="navbar navbar-expand-lg navbar-dark bg-dark py-2 shadow p-0">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Trade history</a>
     <ul class="navbar-nav flex-row d-md-none">
       <li class="nav-item text-nowrap">
@@ -24,11 +24,13 @@
       </li>
     </ul>
   </header>
+
 </template>
 
 <style scoped>
 svg {
   height: 23px;
   width: 27px;
+  color: white
 }
 </style>

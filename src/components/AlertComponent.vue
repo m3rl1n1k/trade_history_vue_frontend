@@ -54,5 +54,7 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
-
+.alert{
+  z-index: 9999;
+}
 </style>

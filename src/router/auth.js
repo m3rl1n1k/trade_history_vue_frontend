@@ -6,7 +6,7 @@ export function isTokenValid(token) {
         const decoded = jwtDecode(token,);
         const currentTime = Date.now() / 1000;
         if (decoded.exp === currentTime) {
-            localStorage.removeItem('token');
+            sessionStorage.removeItem('token');
         }
         return decoded.exp > currentTime;
     } catch (e) {
