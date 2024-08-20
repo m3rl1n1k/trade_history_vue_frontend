@@ -79,7 +79,7 @@ const openEditSubModal = (mainCategory, subCategory) => {
               {{ mainCategory.name }}
             </div>
             <ul v-if="mainCategory.categories.length > 0" class="list-group list-group-flush">
-              <li v-for="(subCategory, subIndex) in mainCategory.categories" :key="subCategory.id"
+              <li v-for="(subCategory) in mainCategory.categories" :key="subCategory.id"
                   class="list-group-item" @click="openEditSubModal(mainCategory,subCategory)">
                 {{ subCategory.name }} <span :style="[subCategory.color ? 'background:'+ subCategory.color:'']"
                                              class="color-tester"></span>
