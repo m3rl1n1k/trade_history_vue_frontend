@@ -36,7 +36,7 @@ const emit = defineEmits(['refreshData'])
 const getMainCategories = async () => {
   try {
     isLoading.value = true
-    axios.get("http://localhost:2280/api/v1/categories/main", {
+    axios.get("http://13.51.157.55/api/v1/categories/main", {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${sessionStorage.getItem('token')}`
@@ -93,7 +93,7 @@ const save = async () => {
   try {
     let response;
     if (!props.isEdit) {
-      response = await axios.post("http://localhost:2280/api/v1/categories/sub/new", data, {
+      response = await axios.post("http://13.51.157.55/api/v1/categories/sub/new", data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${sessionStorage.getItem('token')}`
@@ -103,7 +103,7 @@ const save = async () => {
         emitter.emit('alertSuccess', response.data.message);
       }
     } else {
-      response = await axios.put(`http://localhost:2280/api/v1/categories/sub/edit/${props.subCategory.id}`, data, {
+      response = await axios.put(`http://13.51.157.55/api/v1/categories/sub/edit/${props.subCategory.id}`, data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${sessionStorage.getItem('token')}`
@@ -126,7 +126,7 @@ const save = async () => {
 const deleteSubCategory = async () => {
   isLoading.value = true
   try {
-    const response = await axios.delete(`http://localhost:2280/api/v1/categories/sub/delete/${props.subCategory.id}`, {
+    const response = await axios.delete(`http://13.51.157.55/api/v1/categories/sub/delete/${props.subCategory.id}`, {
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`
       }

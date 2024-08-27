@@ -23,7 +23,7 @@ const selectedTransaction = ref(null)
 async function getTransactionsList(page = 1) {
   isLoading.value = true;
   try {
-    const response = await axios.get(`http://localhost:2280/api/v1/transactions?page=${page}`, {
+    const response = await axios.get(`http://13.51.157.55/api/v1/transactions?page=${page}`, {
       headers: {
         'Accept': 'application/json',
         'Authorization': `Bearer ${sessionStorage.getItem('token')}`

@@ -13,7 +13,7 @@ const isLoading = ref(false);
 async function getWallets() {
   isLoading.value = true;
   try {
-    const response = await axios.get("http://localhost:2280/api/v1/wallets", {
+    const response = await axios.get("http://13.51.157.55/api/v1/wallets", {
       headers: {
         'Accept': 'application/json',
         'Authorization': `Bearer ${sessionStorage.getItem('token')}`

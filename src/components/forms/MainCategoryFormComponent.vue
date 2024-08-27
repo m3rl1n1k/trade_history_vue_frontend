@@ -50,7 +50,7 @@ const save = async () => {
   try {
     let response;
     if (!props.isEdit) {
-      response = await axios.post("http://localhost:2280/api/v1/categories/main/new", data, {
+      response = await axios.post("http://13.51.157.55/api/v1/categories/main/new", data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${sessionStorage.getItem('token')}`
@@ -63,7 +63,7 @@ const save = async () => {
         emitter.emit('alertDanger', response.data.message);
       }
     } else {
-      response = await axios.put(`http://localhost:2280/api/v1/categories/main/edit/${props.mainCategory.id}`, data, {
+      response = await axios.put(`http://13.51.157.55/api/v1/categories/main/edit/${props.mainCategory.id}`, data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${sessionStorage.getItem('token')}`
@@ -87,7 +87,7 @@ const save = async () => {
 const deleteMainCategory = async () => {
   isLoading.value = true
   try {
-    const response = await axios.delete(`http://localhost:2280/api/v1/categories/main/delete/${props.mainCategory.id}`, {
+    const response = await axios.delete(`http://13.51.157.55/api/v1/categories/main/delete/${props.mainCategory.id}`, {
       headers: {
         Authorization: `Bearer ${sessionStorage.getItem('token')}`
       }
