@@ -60,7 +60,7 @@ function validatePassword() {
   }
 }
 
-async function registration() {
+async function SignUp() {
   validateEmail(email.value);
   validatePassword();
   if (emailError.value || passwordError.value || rePasswordError.value) {
@@ -105,7 +105,7 @@ async function registration() {
 
 <template>
   <main class="form-signin w-100 m-auto align-content-center align-items-center min-vh-100 ">
-    <form @submit.prevent="registration">
+    <form @submit.prevent="SignUp">
       <h1 class="h3 mb-3 fw-normal">Sign up</h1>
 
       <!--email-->
