@@ -66,7 +66,7 @@ const logIn = async () => {
   };
 
   try {
-    await axios.post('https://51.21.68.110/api/v1/login_check',
+    await axios.post('http://51.21.68.110/api/v1/login_check',
         {
           username: email.value,
           password: password.value
