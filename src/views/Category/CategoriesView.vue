@@ -17,7 +17,7 @@ const isEditSub = ref(false);
 const getMainCategories = () => {
   try {
     isLoading.value = true;
-    axios.get("http://localhost:2280/api/v1/categories/main", {
+    axios.get("https://51.20.114.2/api/v1/categories/main", {
       headers: {
         'Accept': 'application/json',
         'Authorization': `Bearer ${sessionStorage.getItem('token')}`,

@@ -53,7 +53,7 @@ function setMaxDate() {
 async function getWallets() {
   isLoading.value = true;
   try {
-    const response = await axios.get('http://localhost:2280/api/v1/wallets', {
+    const response = await axios.get('https://51.20.114.2/api/v1/wallets', {
       headers: {
         'Accept': 'application/json',
         'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
@@ -69,7 +69,7 @@ async function getWallets() {
 
 async function getCategories() {
   try {
-    const response = await axios.get('http://localhost:2280/api/v1/categories/main', {
+    const response = await axios.get('https://51.20.114.2/api/v1/categories/main', {
       headers: {
         'Accept': 'application/json',
         'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
@@ -107,7 +107,7 @@ async function save() {
     }
     let response;
     if (!props.isEdit) {
-      response = await axios.post("http://localhost:2280/api/v1/transactions/new", data, {
+      response = await axios.post("https://51.20.114.2/api/v1/transactions/new", data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${sessionStorage.getItem('token')}`
@@ -117,7 +117,7 @@ async function save() {
         emitter.emit('alertSuccess', response.data.message);
       }
     } else {
-      response = await axios.put(`http://localhost:2280/api/v1/transactions/edit/${props.transaction.id}`, data, {
+      response = await axios.put(`https://51.20.114.2/api/v1/transactions/edit/${props.transaction.id}`, data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${sessionStorage.getItem('token')}`

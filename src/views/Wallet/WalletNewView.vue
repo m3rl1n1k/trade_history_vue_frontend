@@ -27,7 +27,7 @@ const createWallet = async () => {
 
   try {
     const response = await axios.post(
-        "http://localhost:2280/api/v1/wallets/new",
+        "https://51.20.114.2/api/v1/wallets/new",
         data,
         {
           headers: {
@@ -51,7 +51,7 @@ const currencies = async () => {
 
   try {
     const response = await axios.get(
-        "http://localhost:2280/api/v1/currency",
+        "https://51.20.114.2/api/v1/currency",
         {
           headers: {
             'Accept': "application/json",

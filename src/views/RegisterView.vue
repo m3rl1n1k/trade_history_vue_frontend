@@ -82,7 +82,7 @@ async function registration() {
   }
 
   try {
-    const response = await axios.post('http://localhost:2280/api/v1/registration', {
+    const response = await axios.post('https://51.20.114.2/api/v1/registration', {
       email: email.value,
       password: password.value
     }, {

@@ -43,7 +43,7 @@ const getSetting = async () => {
   try {
     isLoading.value = true
     let response;
-    response = await axios.get("http://localhost:2280/api/v1/settings/ ", {
+    response = await axios.get("https://51.20.114.2/api/v1/settings/ ", {
       headers: {
         "Content-Type": "application/json",
         'Authorization': `Bearer ${sessionStorage.getItem('token')}`,
